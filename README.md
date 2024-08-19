@@ -1,7 +1,7 @@
 # React-PDF and Next.js Example
 
 This project demonstrates how to integrate `react-pdf` with `Next.js` to display and download PDF files. It uses React hooks and the `react-pdf` library to handle PDF rendering and interactions.
- 
+
 ## Features
 
 - Displays PDF documents using `react-pdf`
@@ -35,7 +35,7 @@ To get started with this project, follow these steps:
 3. **Install Dependencies**
 
    ```bash
-   yarn install
+   npm install
    ```
 
 ## Running the Project
@@ -45,7 +45,7 @@ To get started with this project, follow these steps:
 To start the project in development mode, which enables hot reloading, run:
 
 ```bash
-yarn run dev
+npm run dev
 ```
 
 This will start the Next.js development server and you can view the application in your browser at `http://localhost:3000`.
@@ -57,13 +57,13 @@ To build and start the project in production mode, follow these steps:
 1. **Build the Project**
 
    ```bash
-   yarn run build
+   npm run build
    ```
 
 2. **Start the Production Server**
 
    ```bash
-   yarn start
+   npm start
    ```
 
 The application will be served at `http://localhost:3000` in production mode.
@@ -76,12 +76,9 @@ The application will be served at `http://localhost:3000` in production mode.
 
 ## Code Overview
 
-- **`pages/_app.tsx`**: Initializes the Next.js application and applies global settings and styles.
-- **`pages/index.tsx`**: Main page component that sets up and displays the PDF viewer.
-- **`pages/Sample.tsx`**: Component for rendering and interacting with the PDF using `react-pdf`.
-- **`public/sample.pdf`**: Sample PDF file used for demonstrating the PDF viewer.
-- **`pages/Sample.css`**: Global stylesheet for project-wide styles and layout adjustments.
-
+- **`pages/index.js`**: Main page component that sets up the PDF viewer.
+- **`public/sample.pdf`**: Sample PDF file used for demonstration.
+- **`styles/globals.css`**: Global styles for the project.
 
 ## Contributing
 

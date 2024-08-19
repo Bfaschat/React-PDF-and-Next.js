@@ -1,30 +1,20 @@
 {
-  "name": "react-pdf-sample-page-next",
-  "version": "4.0.0",
-  "description": "A sample page for React-PDF.",
+  "name": "test",
+  "version": "0.1.0",
   "private": true,
-  "type": "module",
   "scripts": {
-    "build": "next build",
     "dev": "next dev",
+    "build": "next build",
     "start": "next start",
-    "preview": "next preview"
-  },
-  "author": {
-    "name": "Wojciech Maj",
-    "email": "kontakt@wojtekmaj.pl"
+    "lint": "next lint"
   },
   "dependencies": {
-    "@wojtekmaj/react-hooks": "^1.21.0",
+    "@wojtekmaj/react-hooks": "^1.20.0",
+    "react-pdf": "^9.0.1",
     "core-js": "^3.38.0",
     "next": "14.2.5",
     "react": "^18",
-    "react-dom": "^18",
-    "react-pdf": "^9.0.1"
+    "react-dom": "^18"
   },
-  "devDependencies": {
-    "@types/node": "22.4.1",
-    "@types/react": "18.3.3",
-    "typescript": "5.5.4"
-  }
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
