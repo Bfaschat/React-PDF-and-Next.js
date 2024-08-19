@@ -5,6 +5,33 @@ import Head from "next/head";
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
 
+export const applyPromisePolyfill = () => {
+  if (typeof Promise.withResolvers === "undefined") {
+    if (typeof window !== "undefined") {
+      // We are in the browser environment
+      // @ts-expect-error This does not exist outside of polyfill which this is doing
+      window.Promise.withResolvers = function () {
+        let resolve, reject;
+        const promise = new Promise((res, rej) => {
+          resolve = res;
+          reject = rej;
+        });
+        return { promise, resolve, reject };
+      };
+    } else if (typeof global !== "undefined") {
+      // We are in the server (Node.js) environment
+      // @ts-expect-error This does not exist outside of polyfill which this is doing
+      global.Promise.withResolvers = function () {
+        let resolve, reject;
+        const promise = new Promise((res, rej) => {
+          resolve = res;
+          reject = rej;
+        });
+        return { promise, resolve, reject };
+      };
+    }
+  }
+};
 //import 'pdfjs-dist/legacy/build/pdf.worker.min.mjs';
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.mjs`;
 
@@ -21,6 +48,7 @@ export default function PdfViewer() {
   const [load, upadateLoad] = useState(true);
 
   useEffect(() => {
+    applyPromisePolyfill();
     const timer = setTimeout(() => {
       upadateLoad(false);
     }, 1200);
