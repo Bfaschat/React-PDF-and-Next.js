@@ -1,40 +1,12 @@
-import "@/styles/globals.css";
-import { StrictMode, useEffect } from 'react';
-import { useRouter } from "next/router";
-
-export const applyPromisePolyfill = () => {
-  if (typeof Promise.withResolvers === "undefined") {
-    if (typeof window !== "undefined") {
-      window.Promise.withResolvers = function () {
-        let resolve, reject;
-        const promise = new Promise((res, rej) => {
-          resolve = res;
-          reject = rej;
-        });
-        return { promise, resolve, reject };
-      };
-    } else if (typeof global !== "undefined") {
-      global.Promise.withResolvers = function () {
-        let resolve, reject;
-        const promise = new Promise((res, rej) => {
-          resolve = res;
-          reject = rej;
-        });
-        return { promise, resolve, reject };
-      };
-    }
-  }
-};
-
+// pages/_app.js
+import { useEffect } from 'react';
+import { applyPromisePolyfill } from '@/utils/polyfills'; // Adjust the path as needed
+import '@/styles/globals.css';
 
 export default function App({ Component, pageProps }) {
-  const router = useRouter();
-
   useEffect(() => {
-    // Apply the polyfill on the client-side only
-    if (typeof Promise.withResolvers === "undefined") {
-      applyPromisePolyfill();
-    }
-  }, []); 
+    applyPromisePolyfill();
+  }, []);
+  
   return <Component {...pageProps} />;
 }
