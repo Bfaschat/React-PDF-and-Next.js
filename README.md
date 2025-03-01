@@ -1,4 +1,4 @@
-# React-PDF and Next.js Example
+# React-PDF and Next.js On Vercel.com
 
 This project demonstrates how to integrate `react-pdf` with `Next.js` to display and download PDF files. It uses React hooks and the `react-pdf` library to handle PDF rendering and interactions.
  
